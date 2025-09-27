@@ -1,0 +1,74 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 4,
+    "lineWidth": 200
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useSingleVarDeclarator": "off",
+        "useConst": "error",
+        "noNonNullAssertion": "off",
+        "useImportType": "off",
+        "useNodejsImportProtocol": "off",
+        "useTemplate": "off"
+      },
+      "suspicious": {
+        "noConsole": "off",
+        "noAsyncPromiseExecutor": "error",
+        "noExplicitAny": "off",
+        "noTsIgnore": "off",
+        "noExportsInTest": "off",
+        "noDuplicateTestHooks": "off",
+        "noIrregularWhitespace": "off"
+      },
+      "complexity": {
+        "noAdjacentSpacesInRegex": "error",
+        "useOptionalChain": "off",
+        "noUselessConstructor": "off",
+        "noUselessTypeConstraint": "off",
+        "useLiteralKeys": "off",
+        "noBannedTypes": "off",
+        "useDateNow": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "off",
+        "noUnusedImports": "off",
+        "noUnusedFunctionParameters": "off",
+        "noUnusedPrivateClassMembers": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "arrowParentheses": "asNeeded",
+      "trailingCommas": "es5"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}

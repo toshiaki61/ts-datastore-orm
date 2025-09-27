@@ -1,5 +1,5 @@
 import * as Datastore from "@google-cloud/datastore";
-import {Query} from "@google-cloud/datastore/build/src";
+import {Query, PropertyFilter} from "@google-cloud/datastore/build/src";
 import {IKey} from "../types";
 
 export class QueryOperator<V extends any> {
@@ -51,9 +51,9 @@ export class QueryOperator<V extends any> {
                 key.parent = this.ancestorKey;
             }
 
-            this.query.filter("__key__", operator, key);
+            this.query.filter(new PropertyFilter("__key__", operator, key));
         } else {
-            this.query.filter(this.fieldName, operator, value);
+            this.query.filter(new PropertyFilter(this.fieldName, operator, value));
         }
 
     }

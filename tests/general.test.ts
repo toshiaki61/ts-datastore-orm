@@ -35,7 +35,7 @@ describe("General Test", () => {
         console.log(await userRepository.getUrl());
     });
 
-    it.only("key", async () => {
+    it("key", async () => {
         const user1 = new User();
         const userKey1 = user1.getKey();
         const userKey2 = userRepository.create().getKey();

@@ -1,4 +1,5 @@
 import * as Datastore from "@google-cloud/datastore";
+import {PropertyFilter} from "@google-cloud/datastore/build/src";
 import {namespaceStats} from "./enums/namespaceStats";
 import {stats} from "./enums/stats";
 import {tsDatastoreOrm} from "./tsDatastoreOrm";
@@ -71,7 +72,7 @@ export class DatastoreAdmin {
         if (typeof options.kind === "string") {
             const key = this.datastore.key([options.stats, options.kind]);
             key.namespace = options.namespace;
-            query.filter("__key__", "=", key);
+            query.filter(new PropertyFilter("__key__", "=", key));
         }
 
         return await this._runQuery(query);

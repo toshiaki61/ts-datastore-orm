@@ -1,0 +1,29 @@
+services:
+  datastore-emulator:
+    image: google/cloud-sdk:alpine
+    command: >
+      sh -c "apk add --no-cache openjdk21-jre &&
+             gcloud components install cloud-datastore-emulator --quiet &&
+             gcloud components install beta --quiet &&
+             gcloud beta emulators datastore start --host-port=0.0.0.0:8081 --project=test-project --no-store-on-disk"
+    ports:
+      - "8082:8081"
+    environment:
+      - DATASTORE_PROJECT_ID=test-project
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8081",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  datastore_data:
