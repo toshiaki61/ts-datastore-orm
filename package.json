@@ -44,7 +44,6 @@
     "format:fix": "biome format --write src tests",
     "check": "biome check src tests",
     "check:fix": "biome check --apply src tests",
-    "prepare": "npm run tsc:build",
     "npm:patch": "npm version patch",
     "tsc:build": "tsc --build --clean && tsc"
   },
